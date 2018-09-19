@@ -1,0 +1,44 @@
+*{padding: 0;margin: 0;}
+html {
+    overflow: hidden;
+}
+a{
+    text-decoration: none;
+    width: 25px;
+    height: 25px;
+}
+#box{
+    background-color: white;
+}
+.toolMenu{
+    position: absolute;
+    color: white;
+}
+.openButton,.download,.clearButton{
+    width: 25px;
+    height: 25px;
+    background-color: #ABCDEF;
+    border-radius: 10%;
+    margin: 5px;
+    color: white;
+    text-align: center;
+    line-height: 25px;
+    cursor: pointer;
+}
+.recognition{
+    width: 60px;
+    height: 25px;
+    background-color: #ABCDEF;
+    border-radius: 10%;
+    margin: 5px;
+    color: white;
+    text-align: center;
+    line-height: 25px;
+    cursor: pointer;
+}
+.tool,.eraser{
+    padding: 5px;
+    margin: 5px;
+    border:2px solid #ABCDEF;
+    display: none;
+}
