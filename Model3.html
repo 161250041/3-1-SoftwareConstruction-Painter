@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>画板</title>
+    <!--外部样式表-->
+    <link rel="stylesheet" type="text/css" href="Style.css">
+    <script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script>
+    <script type="module" src="lib/FileSaver.min.js" charset="utf-8"></script>
+</head>
+
+
+<body>
+
+<!--工具栏-->
+<div class="toolMenu">
+    <a href="#" class="animBtn themeA" >
+        <img src="png/folders.png" width="25" height="25" style="position:relative; bottom:-5px">  读 取
+        <input type="file" id="readButton">
+    </a>
+
+    <a href="#" class="animBtn themeC" id="download">
+        <img src="png/shutter.png" width="25" height="25" style="position:relative; bottom:-5px">  存 储
+    </a>
+
+    <a href="#" class="animBtn themeD" id="clearButton">
+        <img src="png/paintRoller.png" width="25" height="25" style="position:relative; bottom:-5px" >  清 屏
+    </a>
+
+    <a href="#" class="animBtn themeB" id="recognition">
+        <img src="png/diamond.png" width="25" height="25" style="position:relative; bottom:-5px" >  识 别
+    </a>
+
+    <p class="tips" >
+        <img src="png/idea-2.png" width="20" height="20"> 按 回车 快速识别
+    </p>
+</div>
+
+<!--canvas-->
+<canvas id="box"></canvas>
+
+<!--tip-->
+<p style="position:absolute; bottom:0px; left:40px; font-size: 0.475em; color: gray"  >
+    <img src="png/idea-2.png" width="20" height="20"> 颜色说明：&#160
+    <img src="png/pink.png" width="10" height="10"> : 圆  &#160 &#8195
+    <img src="png/blue.png" width="10" height="10"> : 三角形  &#8195
+    <img src="png/orange.png" width="10" height="10"> : 正方形  &#8195
+    <img src="png/purple.png" width="10" height="10"> : 长方形  &#8195
+</p>
+
+<!--装饰-->
+<img src="png/modified.png" width="250" height="250" style="position:absolute; bottom:0px ; right:0px" >
+
+
+<!--js-->
+<script type="module">
+    import {saveAs} from "./lib/FileSaver.min.js";
+
+    $("#download").click(function () {
+        var str = getStr();
+        var blob = new Blob([str], {type: "text/plain;charset=utf-8"});
+        var filename=prompt("请输入文件名称","新的画布图形");
+        if (filename!=null && filename!=""){
+            saveAs(blob, filename+".json");
+
+            var canvas = document.getElementById("box");
+            canvas.toBlob(function(blob) {
+                saveAs(blob, filename+".png");
+            });
+            alert("png文件用于预览，json文件用于读取 ");
+        }else{
+            alert("请输入文件名称！尝试重新保存！");
+        }
+    });
+</script>
+<script type="text/javascript" src="painter.js"></script>
+<script type="text/javascript" src="main.js"></script>
+
+</body>
+</html>
