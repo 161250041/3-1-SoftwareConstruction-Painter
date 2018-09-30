@@ -16,9 +16,7 @@
             painter.recognize();
 
         };
-
-
-
+        
 //清屏
         document.getElementById("clearButton").onclick = function () {
             painter.clearCls();
@@ -27,7 +25,7 @@
 //设置快捷键
         window.onload=function(){
             HotKeyHandler.Init();
-        }
+        };
         var HotKeyHandler={
             currentMainKey:null,
             currentValueKey:null,
@@ -52,22 +50,22 @@
                         MainKey = 13;
                         break;
                 }
-                document.onkeyup=function(e){
+                document.onkeyup=function(){
                     HotKeyHandler.currentMainKey=null;
-                }
+                };
 
                 document.onkeydown=function(event){
 //获取键值
                     var keyCode= event.keyCode ;
                     var keyValue = String.fromCharCode(event.keyCode);
                     if(HotKeyHandler.currentMainKey!=null){
-                        if(keyValue==value){
+                        if(keyValue===value){
                             HotKeyHandler.currentMainKey=null;
                             if(func!=null)func();
                         }
                     }
                     if(keyCode==MainKey){
-                        if(value===0&&func!=null) func();
+                        if(value===0&&func!==null) func();
                         else HotKeyHandler.currentMainKey=keyCode;
                     }
 

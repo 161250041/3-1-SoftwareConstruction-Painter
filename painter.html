@@ -40,7 +40,7 @@
 <canvas id="box"></canvas>
 
 <!--tip-->
-<p style="position:absolute; bottom:0px; left:40px; font-size: 0.475em; color: gray"  >
+<p style="position:absolute; bottom:0; left:40px; font-size: 0.475em; color: gray"  >
     <img src="png/idea-2.png" width="20" height="20"> 颜色说明：&#160
     <img src="png/pink.png" width="10" height="10"> : 圆  &#160 &#8195
     <img src="png/blue.png" width="10" height="10"> : 三角形  &#8195
@@ -60,7 +60,7 @@
         var str = getStr();
         var blob = new Blob([str], {type: "text/plain;charset=utf-8"});
         var filename=prompt("请输入文件名称","新的画布图形");
-        if (filename!=null && filename!=""){
+        if (filename!=null && filename!==""){
             saveAs(blob, filename+".json");
 
             var canvas = document.getElementById("box");

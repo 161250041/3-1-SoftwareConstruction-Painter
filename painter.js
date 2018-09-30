@@ -10,7 +10,7 @@ var Graph={
     color: "#000000",
     x:[],
     y:[],
-}
+};
 function createGraph(id,color,x,y) {
     var g = Object.create(Graph);
     // 初始化新对象:
@@ -89,10 +89,6 @@ function createGraph(id,color,x,y) {
 //封装设置画笔样式
     Painter.prototype.isRoundLineCap = function (isRound) {
         this.context.lineCap = isRound?"round":"butt";
-    };
-//封装画笔颜色
-    Painter.prototype.setLineColor = function (color) {
-        this.context.strokeStyle = color;
     };
 
 //封装读取
@@ -207,7 +203,7 @@ function createGraph(id,color,x,y) {
     };
 //封装清屏
     Painter.prototype.clearCls=function(){
-        this.context.clearRect(0,0,innerWidth,innerHeight)
+        this.context.clearRect(0,0,innerWidth,innerHeight);
         pointsX=[];
         pointsY=[];
         lineX=[];

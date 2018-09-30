@@ -31,7 +31,6 @@ body{
 }
 
 
-r
 .animBtn.themeA {
     padding: 4px 15px;
     height: 29px;
@@ -72,7 +71,7 @@ a.animBtn:link:after, a.animBtn:visited:after {
     content: "";
     position: absolute;
     background: none repeat scroll 0 0 #fff;
-    height: 0%;
+    height: 0;
     left: 50%;
     top: 50%;
     width: 100%;
@@ -114,7 +113,7 @@ a.animBtn.themeC:hover:after {
     opacity: 1;
 }
 a.animBtn.themeD:after {
-    width: 0%;
+    width: 0;
     border-radius: 50%;
     opacity: .5;
     -moz-transform: translateX(-50%) translateY(-50%);
